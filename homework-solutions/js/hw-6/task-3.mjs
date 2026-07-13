@@ -10,17 +10,14 @@ let unique;
 
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9];
 
-const uniqueArr = [];
-
-for (const el of arr) {
-  if (arr.indexOf(el) !== arr.lastIndexOf(el) && !uniqueArr.includes(el)) {
-    uniqueArr.push(el);
+for(const el of arr) {
+   if(arr.indexOf(el) !== arr.lastIndexOf(el)) {
+   arr.splice(arr.lastIndexOf(el), 1)
   }
 }
 
-unique = uniqueArr;
+unique = arr;
 
 console.log(unique);
-
 
 export { unique };
