@@ -9,7 +9,23 @@
 */
 
 function digitalRoot(number) {
-  // Ваш код
+  if (typeof number !== "number") {
+    return "Incorrect data";
+  }
+  if (number < 10) {
+    return number;
+  }
+  const str = number.toString();
+  const digits = str.split("");
+  let sum = 0;
+  for (let i = 0; i < digits.length; i++) {
+    sum += Number(digits[i]);
+  }
+  if (sum <= 9) {
+    return sum;
+  }
+  return digitalRoot(sum);
 }
+console.log(digitalRoot(9007199254740991));
 
 export { digitalRoot };
