@@ -1,3 +1,5 @@
+import { forEachChild } from "typescript";
+
 /*
 Перед вами массив чисел [7, 8, 2, 30, 85, 95, 77, 94, 37, 31], используя методы массивов сделайте следующее:
   1. forEach - присвойте массив в котором все числа делящиеся без остатка на 3 // [30]
@@ -12,15 +14,34 @@
   7. some - проверьте, есть ли в массиве элементы больше 90 //true
   8. every - проверьте, что все элементы массива двухзначные //false
 */
+
 const numbers = [7, 8, 2, 30, 85, 95, 77, 94, 37, 31];
 
-let forEach;
-let map;
-let filter;
-let find;
-let sort;
-let reduce;
-let some;
-let every;
+let forEach = [];
+numbers.forEach(number => !(number % 3) && forEach.push(number));
+console.log(forEach);
+
+let map = numbers.map((number) => number - numbers.length);
+console.log(map);
+
+let filter = numbers.filter((_n, i, arr) => arr[i] > arr[i-1]);
+console.log(filter);
+
+let find = numbers.find((number, i) => number === i);
+console.log(find);
+
+let sort = numbers.toSorted((a, b) => a - b);
+console.log(sort);
+
+let reduce = numbers.reduce((result, number) => {
+    return result + number;
+}, 0);
+console.log(reduce);
+
+let some = numbers.some((number) => number > 90);
+console.log(some);
+
+let every = numbers.every((number) => number >= 10 && number <= 99);
+console.log(every);
 
 export { forEach, map, filter, find, sort, reduce, some, every };
